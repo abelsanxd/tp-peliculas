@@ -1,3 +1,4 @@
+import {Pelicula} from "./classPelicula.js"
 //variables globales
 
 const btnAgregarPelicula = document.getElementById("btnCrearPelicula");
@@ -26,6 +27,10 @@ if(crearPelicula === true){
 
 function creandoPeliculas(){
   console.log("aqui tengo que crear la peli")
+  //todo: validar los datos
+  //crear un objeto pelicula
+  //almacenar el objeto en el array de peliculas
+  //guardar el array en el localstorage
 }
 
 
