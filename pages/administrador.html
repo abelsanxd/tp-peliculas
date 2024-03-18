@@ -61,9 +61,17 @@
         <h1 class="display-1">Lista de Peliculas</h1>
       </div>
       <div>
-        <p class="fs-2 my-4">
-          Opciones: <i class="bi text-primary bi-clipboard-plus"></i>
-        </p>
+        <section class="d-flex align-items-center fs-2 my-4">
+          <p class="mb-0">Opciones:</p>
+          <button
+            class="btn btn-outline-primary btn-sm ms-3"
+            id="btnCrearPelicula"
+            data-bs-toggle="modal" fs-4
+            data-bs-target="#modalPelicula"
+          >
+            <i class="bi bi-clipboard2-plus-fill fs-4"></i>
+          </button>
+        </section>
       </div>
       <div class="table-responsive">
         <table class="table fs-3">
@@ -115,6 +123,160 @@
         </table>
       </div>
     </main>
+    <!-- Modal para administrar Peliculas -->
+    <div
+      class="modal fade"
+      id="modalPelicula"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Administrar Peliculas
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formPelicula">
+              <div class="mb-3">
+                <label for="codigo">Código</label>
+                <input
+                  id="codigo"
+                  type="text"
+                  class="form-control"
+                  placeholder="123"
+                  maxlength="5"
+                  minlength="1"
+                  disabled
+                />
+              </div>
+              <div class="mb-3">
+                <label for="titulo">Titulo *</label>
+                <input
+                  id="titulo"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: Kung Fu Panda 4"
+                  maxlength="60"
+                  minlength="2"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="descripcion">Descripcion *</label>
+                <textarea
+                  id="descripcion"
+                  rows="4"
+                  class="form-control"
+                  placeholder="Ej: Po, quien se convertirá en el Maestro Espiritual del Valle de la Paz, busca a su sucesor como el nuevo Guerrero Dragón mientras lucha contra una nueva enemiga llamada 'La Camaleona'."
+                  maxlength="200"
+                  minlength="2"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="imagen">Imagen *</label>
+                <input
+                  id="imagen"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: http://127.0.0.1:5500/pages/administrador.html"
+                  maxlength="120"
+                  minlength="2"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="genero">Genero *</label>
+                <select id="genero" class="form-control">
+                  <option value="">Selecione una opcion</option>
+                  <option value="Accion">Accion</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Comedia">Comedia</option>
+                  <option value="Aventura">Aventura</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="anio">Año</label>
+                <input
+                  id="anio"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: 2023"
+                  maxlength="4"
+                  minlength="4"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="duracion"
+                  >Duración<small class="text-secondary">
+                    (en minutos)</small
+                  ></label
+                >
+                <input
+                  id="duracion"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: 94 min"
+                  maxlength="2"
+                  minlength="2"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="pais">Pais</label>
+                <input
+                  id="pais"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: EEUU"
+                  maxlength="20"
+                  minlength="2"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="reparto"
+                  >Reparto<small class="text-secondary">
+                    (cada actor separado por , )</small
+                  ></label
+                >
+                <input
+                  id="reparto"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black"
+                  maxlength="200"
+                  minlength="2"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="director">Director *</label>
+                <input
+                  id="director"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: James Wan"
+                  maxlength="200"
+                  minlength="2"
+                />
+              </div>
+              <div
+                class="alert alert-danger mt-3 d-none"
+                role="alert"
+                id="alerta"
+              ></div>
+              <button class="btn btn-primary" type="submit" id="btnFormulario">
+                Enviar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer class="text-center mt-5">
       <p class="fs-4">&copy; todos los derechos reservados</p>
     </footer>
