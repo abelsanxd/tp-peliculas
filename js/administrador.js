@@ -59,6 +59,52 @@ function limpiarFormularioPelicula() {
   formularioPelicula.reset();
 }
 
+function cargaInicial() {
+  //verificar si tengo pelis
+  if (pelis.length > 0) {
+    pelis.map((peli) => dibujarFila());
+  }
+}
+
+function dibujarFila() {
+  const tbody = document.querySelector("#tablaPelicula");
+  tbody.innerHTML += `
+  <tr>
+              <th scope="row">1</th>
+              <td>Kung Fu Panda 4 Año 2024</td>
+              <td>Po, Quien se converti...</td>
+              <td>https://pics.filmaffini...</td>
+              <td>Aventura</td>
+              <td>
+                <a href=""><i class="bi bi-pencil-square text-warning"></i></a>
+                <a href=""><i class="bi bi-x-square text-danger"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>All of Us Stranger</td>
+              <td>Una noche, en su tor...</td>
+              <td>https://pics.filmaffini...</td>
+              <td>Drama</td>
+              <td>
+                <a href=""><i class="bi bi-pencil-square text-warning"></i></a>
+                <a href=""><i class="bi bi-x-square text-danger"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Duna: Parte Dos</td>
+              <td>Tras los sucesos de l...</td>
+              <td>https://pics.filmaffini...</td>
+              <td>Accion</td>
+              <td>
+                <a href=""><i class="bi bi-pencil-square text-warning"></i></a>
+                <a href=""><i class="bi bi-x-square text-danger"></i></a>
+              </td>
+            </tr>
+  `;
+}
 //Logica
 botonAgregarPelicula.addEventListener("click", mostrarModalPelicula);
 formularioPelicula.addEventListener("submit", administrarFormularioPelicula);
+cargaInicial();
