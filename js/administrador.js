@@ -1,47 +1,40 @@
 import Pelicula from "./classPelicula.js";
-//variables globales
 
-const btnAgregarPelicula = document.getElementById("btnCrearPelicula");
-
+//Variables
+const botonAgregarPelicula = document.querySelector("#btnCrearPelicula");
 const modalPelicula = new bootstrap.Modal(
   document.getElementById("modalPelicula")
 );
 let crearPelicula = true;
-const formularioPelicula = document.getElementById("formPelicula");
-const codigo = document.getElementById("codigo");
-const titulo = document.getElementById("titulo");
-const descripcion = document.getElementById("descripcion");
-const anio = document.getElementById("anio");
-const reparto = document.getElementById("reparto");
-const imagen = document.getElementById("imagen");
-const genero = document.getElementById("genero");
-const pais = document.getElementById("pais");
-const duracion = document.getElementById("duracion");
-const peliculas = []
+const formularioPelicula = document.querySelector("#formPelicula");
+const codigo = document.querySelector("#codigo");
+const titulo = document.querySelector("#titulo");
+const descripcion = document.querySelector("#descripcion");
+const anio = document.querySelector("#anio");
+const reparto = document.querySelector("#reparto");
+const director = document.querySelector("#director");
+const imagen = document.querySelector("#imagen");
+const genero = document.querySelector("#genero");
+const pais = document.querySelector("#pais");
+const duracion = document.querySelector("#duracion");
+const pelis = JSON.parse(localStorage.getItem("listaPeliculasKey")) || [];
 
-// funciones
-function monstrarModalPelicula() {
-  modalPelicula.show();
+//Funciones
+function mostrarModalPelicula() {
   crearPelicula = true;
+  modalPelicula.show();
 }
 
 function administrarFormularioPelicula(e) {
-  //aqui decidimos si estamos creando o editando una pelicula
   e.preventDefault();
-  if (crearPelicula === true) {
-    //estoy creando la peli
-    creandoPeliculas();
+
+  if (crearPelicula) {
+    creandoPelicula();
   } else {
-    //estoy editando la peli
   }
 }
 
-function creandoPeliculas() {
-  console.log("aqui tengo que crear la peli");
-  //todo: validar los datos
-  //crear un objeto pelicula
-  //almacenar el objeto en el array de peliculas
-  //guardar el array en el localstorage
+function creandoPelicula() {
   const peliculaNueva = new Pelicula(
     titulo.value,
     descripcion.value,
@@ -53,12 +46,19 @@ function creandoPeliculas() {
     reparto.value,
     director.value
   );
-  console.log(peliculaNueva)
-  peliculas.push(peliculaNueva);
-
+  console.log(peliculaNueva);
+  pelis.push(peliculaNueva);
+  guardarLocalStorage();
 }
 
-//logica
+function guardarLocalStorage() {
+  localStorage.setItem("listaPeliculasKey", JSON.stringify(pelis));
+}
 
-btnAgregarPelicula.addEventListener("click", monstrarModalPelicula);
+function limpiarFormularioPelicula() {
+  formularioPelicula.reset();
+}
+
+//Logica
+botonAgregarPelicula.addEventListener("click", mostrarModalPelicula);
 formularioPelicula.addEventListener("submit", administrarFormularioPelicula);
