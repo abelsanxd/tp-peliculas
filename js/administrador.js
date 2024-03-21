@@ -49,6 +49,17 @@ function creandoPelicula() {
   console.log(peliculaNueva);
   pelis.push(peliculaNueva);
   guardarLocalStorage();
+  limpiarFormularioPelicula();
+  dibujarFila(peliculaNueva);
+
+  //mostrar msj al usuario
+  Swal.fire({
+    title: "Pelicula creada",
+
+    text: `La pelicula ${peliculaNueva.titulo} esta agregada`,
+
+    icon: "success",
+  });
 }
 
 function guardarLocalStorage() {
@@ -62,19 +73,20 @@ function limpiarFormularioPelicula() {
 function cargaInicial() {
   //verificar si tengo pelis
   if (pelis.length > 0) {
-    pelis.map((peli) => dibujarFila());
+    pelis.map((peli) => dibujarFila(peli));
   }
 }
 
-function dibujarFila() {
+function dibujarFila(peli) {
+  console.log(peli);
   const tbody = document.querySelector("#tablaPelicula");
   tbody.innerHTML += `
   <tr>
-              <th scope="row">1</th>
-              <td>Kung Fu Panda 4 Año 2024</td>
-              <td>Po, Quien se converti...</td>
-              <td>https://pics.filmaffini...</td>
-              <td>Aventura</td>
+              <th scope="row">${peli.id}</th>
+              <td>${peli.titulo}</td>
+              <td>${peli.descripcion}</td>
+              <td>${peli.imagen}</td>
+              <td>${peli.genero}</td>
               <td>
                 <a href=""><i class="bi bi-pencil-square text-warning"></i></a>
                 <a href=""><i class="bi bi-x-square text-danger"></i></a>
@@ -108,3 +120,10 @@ function dibujarFila() {
 botonAgregarPelicula.addEventListener("click", mostrarModalPelicula);
 formularioPelicula.addEventListener("submit", administrarFormularioPelicula);
 cargaInicial();
+Swal.fire({
+  title: "Good job!",
+
+  text: "You clicked the button!",
+
+  icon: "success",
+});
