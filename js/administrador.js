@@ -92,28 +92,6 @@ function dibujarFila(peli) {
                 <a href=""><i class="bi bi-x-square text-danger"></i></a>
               </td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>All of Us Stranger</td>
-              <td>Una noche, en su tor...</td>
-              <td>https://pics.filmaffini...</td>
-              <td>Drama</td>
-              <td>
-                <a href=""><i class="bi bi-pencil-square text-warning"></i></a>
-                <a href=""><i class="bi bi-x-square text-danger"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Duna: Parte Dos</td>
-              <td>Tras los sucesos de l...</td>
-              <td>https://pics.filmaffini...</td>
-              <td>Accion</td>
-              <td>
-                <a href=""><i class="bi bi-pencil-square text-warning"></i></a>
-                <a href=""><i class="bi bi-x-square text-danger"></i></a>
-              </td>
-            </tr>
   `;
 }
 //Logica
