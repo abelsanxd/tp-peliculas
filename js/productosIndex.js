@@ -1,11 +1,11 @@
 function cargarPeliculasEnIndex() {
-    const pelis = JSON.parse(localStorage.getItem("listaPeliculasKey")) || [];
-    const contenedorPeliculas = document.querySelector("#contenedorPeliculas");
-  
-    pelis.forEach(peli => {
-      const article = document.createElement("article");
-      article.classList.add("col-md-4", "col-lg-3", "mb-3");
-      article.innerHTML = `
+  const pelis = JSON.parse(localStorage.getItem("listaPeliculasKey")) || [];
+  const contenedorPeliculas = document.querySelector("#contenedorPeliculas");
+
+  pelis.forEach((peli) => {
+    const article = document.createElement("article");
+    article.classList.add("col-md-4", "col-lg-3", "mb-3");
+    article.innerHTML = `
         <div class="card h-100">
           <img src="${peli.imagen}" alt="${peli.titulo}" />
           <div class="card-body">
@@ -18,8 +18,8 @@ function cargarPeliculasEnIndex() {
           </div>
         </div>
       `;
-      contenedorPeliculas.appendChild(article);
-    });
-  }
-  
-  document.addEventListener("DOMContentLoaded", cargarPeliculasEnIndex);
+    contenedorPeliculas.appendChild(article);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", cargarPeliculasEnIndex);
